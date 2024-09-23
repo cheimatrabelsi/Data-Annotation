@@ -34,49 +34,51 @@ This repository contains the complete annotation pipeline for horse gait recogni
 </pre>
 
 <h2>🛠 Pipeline Breakdown</h2>
-
 <h3>1. 🖼 Frame Resizing</h3>
 Before annotation, all frames need to be resized for consistency.
 
-- **`resize_frames.py`**: Resizes frames to a standard resolution.
+- **`resize_frames.ipynb`**: Resizes frames to a standard resolution.
   <pre><code>
-  python resize_frames.py --input_dir data/raw_frames/ --output_dir data/resized_frames/ --width 512 --height 512
+  Run the notebook "resize_frames.ipynb" to resize all frames.
+  Specify the input directory and output directory, along with the desired width and height.
   </code></pre>
 
 <h3>2. 📄 CSV Annotation Processing</h3>
 
 <h4>Step 1: Adjust CSV for Resized Frames</h4>
-The <strong>`alternate_csv.py`</strong> script adjusts the CSV file to match the new frame sizes.
+The <strong>`alternate_csv.ipynb`</strong> notebook adjusts the CSV file to match the new frame sizes.
 
 <pre><code>
-python alternate_csv.py --input_csv annotations/original_annotations.csv --output_csv annotations/resized_annotations.csv --new_width 512 --new_height 512
+Run the "alternate_csv.ipynb" notebook.
+Provide the input CSV file, output CSV file, and the new width and height.
 </code></pre>
 
 <h4>Step 2: Convert CSV to JSON for CVAT</h4>
-The modified CSV files are converted to CVAT-compatible JSON format using <strong>`csv_to_json.py`</strong>.
+The modified CSV files are converted to CVAT-compatible JSON format using <strong>`csv_to_json.ipynb`</strong>.
 
 <pre><code>
-python csv_to_json.py --input_csv annotations/resized_annotations.csv --output_json annotations/cvat_annotations.json
+Run "csv_to_json.ipynb" to convert the resized CSV file to JSON format for CVAT.
 </code></pre>
 
 <h3>3. 🎥 Frame Extraction for New Videos</h3>
-Extract frames from videos using <strong>`extract_frames.py`</strong>.
+Extract frames from videos using <strong>`extract_frames.ipynb`</strong>.
 
 <pre><code>
-python extract_frames.py --video_path data/raw_video.mp4 --output_dir data/raw_frames/
+Run the "extract_frames.ipynb" notebook to extract frames from videos.
 </code></pre>
 
 <h3>4. 🤖 Mapping ViTPose Results to CVAT Format</h3>
-Use <strong>`vitpose_to_cvat.py`</strong> to convert ViTPose results to the CVAT format.
+Use <strong>`vitpose_to_cvat.ipynb`</strong> to convert ViTPose results to the CVAT format.
 
 <pre><code>
-python vitpose_to_cvat.py --input_json results/vitpose_output.json --output_json annotations/cvat_pose_annotations.json
+Run "vitpose_to_cvat.ipynb" to map ViTPose results to CVAT-compatible JSON.
 </code></pre>
 
 <h2>📖 Additional Resources</h2>
 
 <ul>
   <li><a href="docs/cvat_guide.pdf" target="_blank"><strong>CVAT Guide</strong></a>: Detailed instructions for working with CVAT.</li>
+  <li><a href="cvat_backup.zip" target="_blank"><strong>CVAT Project Backup</strong></a>: Use this backup to create a new CVAT project from scratch.</li>
 </ul>
 
 <h2>🚀 Getting Started</h2>
