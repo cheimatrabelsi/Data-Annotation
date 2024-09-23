@@ -8,7 +8,7 @@
 <h2 align="center">📋 Overview</h2>
 
 <p align="center">
-This repository contains the complete annotation pipeline for horse gait recognition, including scripts for frame extraction, resizing, CSV annotation processing, and converting pose estimation results for use in <a href="https://github.com/opencv/cvat" target="_blank">CVAT</a>. You can find a <strong>guidebook</strong> for CVAT in the <a href="docs/cvat_guide.pdf" target="_blank">CVAT Guide</a>.
+This repository contains the complete annotation pipeline for horse gait recognition as well as horse pose estimation, including scripts for frame extraction, resizing, CSV annotation processing, and converting pose estimation results for use in <a href="https://github.com/opencv/cvat" target="_blank">CVAT</a>. You can find a <strong>guidebook</strong> for CVAT in the <a href="docs/cvat_guide.pdf" target="_blank">CVAT Guide</a> as well as the project on CVAT which you can use it to create a project from Backup.
 </p>
 
 <h2>📂 Folder Structure</h2>
